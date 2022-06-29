@@ -3,7 +3,7 @@ package marsrover.rover
 import marsrover.model.Coordinates
 import marsrover.model.Direction
 
-final class Rover(coordinates: Coordinates, heading: Direction) {
+final class Rover private (coordinates: Coordinates, heading: Direction) {
   private var state: RoverState = RoverState(coordinates, heading)
 
   def executeCommands(commandStr: String): String = {
@@ -29,4 +29,9 @@ final class Rover(coordinates: Coordinates, heading: Direction) {
   def reportPosition: String =
     s"(${this.state.coordinates.x}, ${this.state.coordinates.y}) ${this.state.heading}"
 
+}
+
+object Rover {
+  def touchDown(coordinates: Coordinates, heading: Direction): Rover =
+    new Rover(coordinates, heading)
 }

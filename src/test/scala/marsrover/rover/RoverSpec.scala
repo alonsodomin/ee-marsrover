@@ -8,7 +8,7 @@ import org.scalatest.matchers.should.Matchers
 final class RoverSpec extends AnyFlatSpec with Matchers {
 
   "Rover" should "perform movements according to the given command list" in {
-    val rover = new Rover(
+    val rover = Rover.touchDown(
       Coordinates(0, 0), Direction.North
     )
 
@@ -17,7 +17,7 @@ final class RoverSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "throw an exception if any of the commands is not a valid one" in {
-    val rover = new Rover(
+    val rover = Rover.touchDown(
       Coordinates(0, 0), Direction.North
     )
 
