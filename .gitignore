@@ -1,0 +1,4 @@
+/.bsp/
+.boop/
+target/
+metals.sbt
